@@ -6,6 +6,6 @@ return [
     'version'           => '1.0.0',
     'author'            => 'Eric Lamb',
     'author_url'        => 'fdsa',
-    'namespace'         => 'EricLamb\GridPagination',
+    'namespace'         => 'Mithra62\GridPagination',
     'settings_exist'    => false,
 ];
