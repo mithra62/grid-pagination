@@ -30,8 +30,8 @@ class FieldParams extends AbstractRoute
         }
 
         $tagVars = [
-            'grid_offset' => $offset,
-            'grid_limit' => $limit
+            'grid:offset' => $offset,
+            'grid:limit' => $limit
         ];
 
         return ee()->TMPL->parse_variables_row(ee()->TMPL->tagdata, $tagVars);
