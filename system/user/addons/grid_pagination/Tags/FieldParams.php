@@ -11,22 +11,19 @@ class FieldParams extends AbstractRoute
      */
     public function process()
     {
-        $offset_key = ee()->TMPL->fetch_param('offset_key', 'offset');
-        $limit_key = ee()->TMPL->fetch_param('limit_key', 'limit');
         $field_id = ee()->TMPL->fetch_param('field_id', false);
         $entry_id = ee()->TMPL->fetch_param('entry_id', false);
+        $limit = ee()->TMPL->fetch_param('limit', \PHP_INT_MAX);
+        $url_segment = ee()->TMPL->fetch_param('url_segment', 3);
+        $prefix = ee()->TMPL->fetch_param('prefix', 'G');
         if(!$field_id || !$entry_id) {
             return 'missing field_id or entry_id parameters';
         }
 
-        $offset = ee()->input->get_post($offset_key);
+        $segment = ee()->uri->segment($url_segment);
+        $offset = str_replace($prefix, '', $segment);
         if(!$offset) {
-            $offset = ee()->TMPL->fetch_param('offset', 0);
-        }
-
-        $limit = ee()->input->get_post($limit_key);
-        if(!$limit) {
-            $limit = ee()->TMPL->fetch_param('limit', \PHP_INT_MAX);
+            $offset = 0;
         }
 
         $tagVars = [
