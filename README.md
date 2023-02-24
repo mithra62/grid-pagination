@@ -77,6 +77,8 @@ How many Grid items you want per page
 `prefix`
 The string you want to delineate your pagination from others. Defaults to `G` (for Grid)
 
+> Note that this tag uses the native Pagination tooling for ExpressionEngine, so all those paramters and tags work here too
+
 #### Example
 ```html
 {exp:grid_pagination:pagination field_id='FIELD_ID' entry_id="ENTRY_ID" limit="2"}
