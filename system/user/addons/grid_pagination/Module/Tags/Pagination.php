@@ -16,6 +16,7 @@ class Pagination extends AbstractRoute
         $url_title = ee()->TMPL->fetch_param('url_title', false);
         $channel_shortname = ee()->TMPL->fetch_param('channel', false);
         $limit = ee()->TMPL->fetch_param('limit', \PHP_INT_MAX);
+        $url_segment = ee()->TMPL->fetch_param('url_segment', 3);
         $prefix = ee()->TMPL->fetch_param('prefix', 'G');
 
         if(!$entry_id) {
@@ -28,6 +29,7 @@ class Pagination extends AbstractRoute
 
         ee()->load->library('pagination');
         $pagination = ee()->pagination->create();
+        $pagination->url_segment = $url_segment;
 
         ee()->TMPL->tagdata = $pagination->prepare(ee()->TMPL->tagdata);
         $pagination->prefix = $prefix;

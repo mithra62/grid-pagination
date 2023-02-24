@@ -50,6 +50,9 @@ The url_title value for the entry you want (requires channel param)
 `limit` 
 How many Grid items you want per page
 
+`url_segment` 
+The URL path segment the pagination value lives in (defaults to 3)
+
 #### Example
 ```html
 {exp:grid_pagination:field_params field_id='FIELD_ID' entry_id="ENTRY_ID" limit="2"}
