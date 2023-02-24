@@ -23,6 +23,10 @@ Due to how ExpressionEngine parses templates (and/or my limited understanding of
 2. Since the `channel:entries` tag can contain its own pagination, you should implement your pagination as an embed. 
 3. You have to add 2 parameters to your Grid fields for output `offset` and `limit`
 
+## Requirements
+
+At least PHP >= 8.1 and ExpressionEngine >= 6.4 or >= 7.2
+
 ## Tags
 
 ### `field_params`
