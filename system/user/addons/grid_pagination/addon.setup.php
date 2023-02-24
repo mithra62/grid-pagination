@@ -1,6 +1,7 @@
 <?php
 
 use Mithra62\GridPagination\Services\GridService;
+use Mithra62\GridPagination\Services\EntryService;
 
 return [
     'name'              => 'grid_pagination',
@@ -14,5 +15,11 @@ return [
         'GridService' => function ($addon) {
             return new GridService();
         },
+        'EntryService' => function ($addon) {
+            return new EntryService();
+        },
+    ],
+    'requires'       => [
+        'php'   => '8.0',
     ]
 ];
