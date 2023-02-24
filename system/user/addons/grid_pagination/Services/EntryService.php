@@ -1,10 +1,27 @@
 <?php
 namespace Mithra62\GridPagination\Services;
 
+use CI_DB_result;
+
 class EntryService
 {
-    public function getEntryId($url_title, $channel_shortname)
+    /**
+     * @param string $url_title
+     * @param string $channel_shortname
+     * @return void
+     */
+    public function getEntryId(string $url_title, string $channel_shortname)
     {
+        $channel_id = ee('grid_pagination:ChannelService')->getChannelId($channel_shortname);
+        $data = ee()->db->select('entry_id')->from('channel_titles')
+            ->where(['url_title' => $url_title, 'channel_id' => $channel_id])
+            ->get();
 
+        $return = 0;
+        if($data instanceof CI_DB_result) {
+            $return = $data->row('entry_id');
+        }
+
+        return $return;
     }
 }

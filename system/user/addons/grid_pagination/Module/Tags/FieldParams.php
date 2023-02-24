@@ -18,7 +18,6 @@ class FieldParams extends AbstractRoute
         $limit = ee()->TMPL->fetch_param('limit', \PHP_INT_MAX);
         $url_segment = ee()->TMPL->fetch_param('url_segment', 3);
         $prefix = ee()->TMPL->fetch_param('prefix', 'G');
-
         if(!$entry_id) {
             $entry_id = ee('grid_pagination:EntryService')->getEntryId($url_title, $channel_shortname);
         }
