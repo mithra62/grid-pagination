@@ -4,7 +4,7 @@ Adds pagination capabilities to Grid Fields for ExpressionEngine 7.2 and above.
 ## Basic Example
 
 ```html
-{exp:grid_pagination:field_params field_id='FIELD_ID' entry_id="ENTRY_ID" limit="2"}
+{exp:grid_pagination:field_params field_id='FIELD_ID'url_title="{segment_3}" channel_id="CHANNEL_ID" limit="2"}
     {exp:channel:entries entry_id="ENTRY_ID" channel="CHANNEL_NAME"}
         {test_grid_field offset="{grid:offset}" limit="{grid:limit}"}
             {GRID_FIELD_NAME:GRID_COLUMN_NAME} <br />
@@ -37,6 +37,12 @@ This parameter should be the integer value for the specific Grid field you want 
 `entry_id`
 The specific Channel Entry your Grid field resides in
 
+`channel`
+The Channel short name to relate to a url_title parameter
+
+`url_title`
+The url_title value for the entry you want (requires channel param)
+
 `limit` 
 How many Grid items you want per page
 
@@ -58,6 +64,12 @@ This parameter should be the integer value for the specific Grid field you want 
 
 `entry_id`
 The specific Channel Entry your Grid field resides in
+
+`channel`
+The Channel short name to relate to a url_title parameter
+
+`url_title`
+The url_title value for the entry you want (requires channel param)
 
 `limit` 
 How many Grid items you want per page
