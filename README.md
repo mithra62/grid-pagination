@@ -25,7 +25,7 @@ Due to how ExpressionEngine parses templates (and/or my limited understanding of
 
 ## Requirements
 
-At least PHP >= 8.1 and ExpressionEngine >= 6.4 or >= 7.2
+At least PHP >= 8.0 and ExpressionEngine >= 6.4 or >= 7.2
 
 ## Tags
 
