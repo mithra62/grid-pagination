@@ -70,6 +70,12 @@ The url_title value for the entry you want (requires channel param)
 `limit` 
 How many Grid items you want per page
 
+`url_segment`
+The number the pagination URL segment comes from. (optional, default is 3)
+
+`prefix`
+A unique letter to differentiate pagination units. (optional, default is "G")
+
 #### Example
 <pre>
 {exp:grid_pagination:field_params field_id='FIELD_ID' entry_id="ENTRY_ID" limit="2"}
@@ -97,6 +103,9 @@ The url_title value for the entry you want (requires channel param)
 
 `limit` 
 How many Grid items you want per page
+
+`url_segment`
+The number the pagination URL segment comes from. (optional, default is 3)
 
 `prefix`
 The string you want to delineate your pagination from others. Defaults to `G` (for Grid)
