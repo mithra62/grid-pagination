@@ -32,13 +32,12 @@ class ChannelServiceTest extends TestCase
             $data = ee()->db->select('channel_id, channel_name')->from('channels')
                 ->limit(1)
                 ->get();
+
             if($data instanceof CI_DB_result && $data->num_rows() == 1) {
                 $this->channel_id = $data->row('channel_id');
                 $this->channel_name = $data->row('channel_name');
             }
         }
-
-        return $this->channel_name;
     }
 
     public function testClassExists()
