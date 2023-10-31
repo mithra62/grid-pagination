@@ -12,7 +12,7 @@
          stopOnSkipped="true"
          printerClass="PHPUnit\TextUI\DefaultResultPrinter">
     <testsuites>
-        <testsuite name="Encryption FieldType Test Suite">
+        <testsuite name="Grid Pagination Test Suite">
             <directory suffix="Test.php">./</directory>
         </testsuite>
     </testsuites>
