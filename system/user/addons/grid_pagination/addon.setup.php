@@ -10,7 +10,7 @@ return [
     'name'              => 'Grid Pagination',
     'description'       => 'Adds the ability to pagination Grid results in template tags',
     'version'           => GRID_PAGINATION_VERSION,
-    'author'            => 'Eric Lamb',
+    'author'            => 'mithra62',
     'author_url'        => 'https://github.com/mithra62/grid-pagination',
     'namespace'         => 'Mithra62\Grid\Pagination',
     'settings_exist'    => false,
