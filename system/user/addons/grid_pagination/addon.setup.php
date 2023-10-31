@@ -4,10 +4,12 @@ use Mithra62\GridPagination\Services\GridService;
 use Mithra62\GridPagination\Services\EntryService;
 use Mithra62\GridPagination\Services\ChannelService;
 
+const GRID_PAGINATION_VERSION = '1.1.1';
+
 return [
-    'name'              => 'grid_pagination',
-    'description'       => 'grid_pagination description',
-    'version'           => '0.1.0',
+    'name'              => 'Grid Pagination',
+    'description'       => 'Adds the ability to pagination Grid results in template tags',
+    'version'           => GRID_PAGINATION_VERSION,
     'author'            => 'Eric Lamb',
     'author_url'        => 'fdsa',
     'namespace'         => 'Mithra62\GridPagination',
