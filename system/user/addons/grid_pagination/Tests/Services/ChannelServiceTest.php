@@ -3,40 +3,18 @@ namespace Mithra62\Grid\Pagination\Tests\Services;
 
 use PHPUnit\Framework\TestCase;
 use Mithra62\Grid\Pagination\Services\ChannelService;
-use CI_DB_result;
+use Mithra62\Grid\Pagination\Tests\ContentTrait;
+use \Exception;
 
 class ChannelServiceTest extends TestCase
 {
-    /**
-     * @var null
-     */
-    protected $channel_name = null;
+    use ContentTrait;
 
-    /**
-     * @var int
-     */
-    protected $channel_id = 0;
-
-    public function __construct(?string $name = null, array $data = [], $dataName = '')
+    public function setup(): void
     {
-        parent::__construct($name, $data, $dataName);
         $this->setupChannel();
-    }
-
-    /**
-     * @return array|mixed|object
-     */
-    protected function setupChannel()
-    {
-        if(is_null($this->channel_name)) {
-            $data = ee()->db->select('channel_id, channel_name')->from('channels')
-                ->limit(1)
-                ->get();
-
-            if($data instanceof CI_DB_result && $data->num_rows() == 1) {
-                $this->channel_id = $data->row('channel_id');
-                $this->channel_name = $data->row('channel_name');
-            }
+        if($this->channel_id === 0) {
+            throw new Exception("No Channels are setup!");
         }
     }
 
