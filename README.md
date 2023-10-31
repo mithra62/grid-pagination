@@ -1,5 +1,5 @@
 # Grid Pagination
-Adds pagination capabilities to Grid Fields for ExpressionEngine 7.2 and above. 
+Adds pagination capabilities to Grid Fields for ExpressionEngine 6.4 (and 7.2) and above. 
 
 ## Basic Example
 
