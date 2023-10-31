@@ -3,6 +3,7 @@
 namespace Mithra62\Grid\Pagination\Tests;
 
 use PHPUnit\Framework\TestCase;
+use \Grid_pagination;
 
 class ModTest extends TestCase
 {
@@ -16,5 +17,10 @@ class ModTest extends TestCase
     public function testModuleObjectExists()
     {
         $this->assertTrue(class_exists('\Grid_pagination'));
+    }
+
+    public function testModInstance()
+    {
+        $this->assertInstanceOf('ExpressionEngine\Service\Addon\Module', new Grid_pagination);
     }
 }

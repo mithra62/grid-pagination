@@ -31,6 +31,40 @@ trait ContentTrait
     protected int $grid_total_rows = 0;
 
     /**
+     * @var string|null
+     */
+    protected ?string $url_title = null;
+
+    /**
+     * @var int
+     */
+    protected int $entry_id = 0;
+
+    protected function setupEntry(): void
+    {
+        if(is_null($this->url_title)) {
+            $data = ee()->db->select('channel_id, entry_id, url_title')->from('channel_titles')
+                ->limit(1)
+                ->get();
+
+            if($data instanceof CI_DB_result && $data->num_rows() == 1) {
+                $this->url_title = $data->row('url_title');
+                $this->entry_id = $data->row('entry_id');
+                $this->channel_id = $data->row('channel_id');
+                $data = ee()->db->select('channel_name')->from('channels')
+                    ->where(['channel_id' => $this->channel_id])
+                    ->limit(1)
+                    ->get();
+
+                if($data instanceof CI_DB_result && $data->num_rows() == 1) {
+                    $this->channel_name = $data->row('channel_name');
+                }
+            }
+
+        }
+    }
+
+    /**
      * @return void
      */
     protected function setupChannel(): void
