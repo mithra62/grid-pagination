@@ -4,14 +4,34 @@ Adds pagination capabilities to Grid Fields for ExpressionEngine 7.2 and above.
 ## Basic Example
 
 ```html
-{exp:grid_pagination:field_params field_id='FIELD_ID'url_title="{segment_3}" channel_id="CHANNEL_ID" limit="2"}
-    {exp:channel:entries entry_id="ENTRY_ID" channel="CHANNEL_NAME"}
-        {test_grid_field offset="{grid:offset}" limit="{grid:limit}"}
-            {GRID_FIELD_NAME:GRID_COLUMN_NAME} <br />
-        {/test_grid_field}
-        {embed="embeds/_grid-pagination"}
+{exp:grid_pagination:field_params
+    field_id='4'
+    url_title="{segment_3}"
+    channel="blog"
+    limit="2"
+    url_segment="4"
+}
 
-    {/exp:channel:entries}
+{exp:channel:entries url_title="{segment_3}" dynamic="false" limit='1' require_entry='yes'}
+
+    {!-- content output --}
+    <h1>{title}</h1>
+
+    {!-- image (GRID) --}
+    {if blog_image}
+        {blog_image offset="{grid:offset}" limit="{grid:limit}"}
+            <figure>
+                <img src="{blog_image:image}" alt="{blog_image:caption:attr_safe}">
+                <figcaption>{blog_image:caption}</figcaption>
+            </figure>
+            {blog_image:grid_encryption}
+            <p>
+                {blog_image:test_grid_datalist:label}
+            </p>
+        {/blog_image}
+        {embed="blog/_grid-pagination"}
+    {/if}
+{/exp:channel:entries}
 {/exp:grid_pagination:field_params}
 ```
 
@@ -50,15 +70,12 @@ The url_title value for the entry you want (requires channel param)
 `limit` 
 How many Grid items you want per page
 
-`url_segment` 
-The URL path segment the pagination value lives in (defaults to 3)
-
 #### Example
-```html
+<pre>
 {exp:grid_pagination:field_params field_id='FIELD_ID' entry_id="ENTRY_ID" limit="2"}
-<!-- Channel Entries Tag Here -->
+Channel Entries Tag Here 
 {/exp:grid_pagination:field_params}
-```
+</pre>
 
 ### Pagination
 
@@ -87,32 +104,33 @@ The string you want to delineate your pagination from others. Defaults to `G` (f
 > Note that this tag uses the native Pagination tooling for ExpressionEngine, so all those paramters and tags work here too
 
 #### Example
-```html
-{exp:grid_pagination:pagination field_id='FIELD_ID' entry_id="ENTRY_ID" limit="2"}
-{paginate}
-{pagination_links}
-<ul>
-  {first_page}
-  <li><a href="{pagination_url}" class="page-first">First Page</a></li>
-  {/first_page}
+```
+{exp:grid_pagination:field_params
+    field_id='4'
+    url_title="{segment_3}"
+    channel="blog"
+    limit="2"
+    url_segment="4"
+}
+{exp:channel:entries url_title="{segment_3}" dynamic="false" limit='1' require_entry='yes'}
 
-  {previous_page}
-  <li><a href="{pagination_url}" class="page-previous">Previous Page</a></li>
-  {/previous_page}
+    {!-- content output --}
+    <h1>{title}</h1>
 
-  {page}
-  <li><a href="{pagination_url}" class="page-{pagination_page_number} {if current_page}active{/if}">{pagination_page_number}</a></li>
-  {/page}
-
-  {next_page}
-  <li><a href="{pagination_url}" class="page-next">Next Page</a></li>
-  {/next_page}
-
-  {last_page}
-  <li><a href="{pagination_url}" class="page-last">Last Page</a></li>
-  {/last_page}
-</ul>
-{/pagination_links}
-{/paginate}
-{/exp:grid_pagination:pagination}
+    {!-- image (GRID) --}
+    {if blog_image}
+        {blog_image offset="{grid:offset}" limit="{grid:limit}"}
+            <figure>
+                <img src="{blog_image:image}" alt="{blog_image:caption:attr_safe}">
+                <figcaption>{blog_image:caption}</figcaption>
+            </figure>
+            {blog_image:grid_encryption}
+            <p>
+                {blog_image:test_grid_datalist:label}
+            </p>
+        {/blog_image}
+        {embed="blog/_grid-pagination"}
+    {/if}
+{/exp:channel:entries}
+{/exp:grid_pagination:field_params}
 ```

@@ -8,7 +8,7 @@ class EntryService
     /**
      * @param string $url_title
      * @param string $channel_shortname
-     * @return void
+     * @return int
      */
     public function getEntryId(string $url_title, string $channel_shortname)
     {
