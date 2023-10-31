@@ -16,7 +16,7 @@ class ChannelService
             ->get();
 
         $return = 0;
-        if($data instanceof CI_DB_result) {
+        if($data instanceof CI_DB_result && $data->num_rows() >= 1) {
             $return = $data->row('channel_id');
         }
 

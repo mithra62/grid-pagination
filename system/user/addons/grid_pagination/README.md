@@ -4,14 +4,33 @@ Adds pagination capabilities to Grid Fields for ExpressionEngine 7.2 and above.
 ## Basic Example
 
 <pre>
-{exp:grid_pagination:field_params field_id='FIELD_ID'url_title="{segment_3}" channel_id="CHANNEL_ID" limit="2"}
-    {exp:channel:entries entry_id="ENTRY_ID" channel="CHANNEL_NAME"}
-        {test_grid_field offset="{grid:offset}" limit="{grid:limit}"}
-            {GRID_FIELD_NAME:GRID_COLUMN_NAME} <br />
-        {/test_grid_field}
-        {embed="embeds/_grid-pagination"}
+{exp:grid_pagination:field_params
+    field_id='4'
+    url_title="{segment_3}"
+    channel="blog"
+    limit="2"
+    url_segment="4"
+}
+{exp:channel:entries url_title="{segment_3}" dynamic="false" limit='1' require_entry='yes'}
 
-    {/exp:channel:entries}
+    {!-- content output --}
+    <h1>{title}</h1>
+
+    {!-- image (GRID) --}
+    {if blog_image}
+        {blog_image offset="{grid:offset}" limit="{grid:limit}"}
+            <figure>
+                <img src="{blog_image:image}" alt="{blog_image:caption:attr_safe}">
+                <figcaption>{blog_image:caption}</figcaption>
+            </figure>
+            {blog_image:grid_encryption}
+            <p>
+                {blog_image:test_grid_datalist:label}
+            </p>
+        {/blog_image}
+        {embed="blog/_grid-pagination"}
+    {/if}
+{/exp:channel:entries}
 {/exp:grid_pagination:field_params}
 </pre>
 
@@ -85,29 +104,32 @@ The string you want to delineate your pagination from others. Defaults to `G` (f
 
 #### Example
 ```
-{exp:grid_pagination:pagination field_id='FIELD_ID' entry_id="ENTRY_ID" limit="2"}
-{paginate}
-{pagination_links}
-  {first_page}
-  <a href="{pagination_url}" class="page-first">First Page</a>
-  {/first_page}
+{exp:grid_pagination:field_params
+    field_id='4'
+    url_title="{segment_3}"
+    channel="blog"
+    limit="2"
+    url_segment="4"
+}
+{exp:channel:entries url_title="{segment_3}" dynamic="false" limit='1' require_entry='yes'}
 
-  {previous_page}
-  <a href="{pagination_url}" class="page-previous">Previous Page</a>
-  {/previous_page}
+    {!-- content output --}
+    <h1>{title}</h1>
 
-  {page}
-  <a href="{pagination_url}" class="page-{pagination_page_number} {if current_page}active{/if}">{pagination_page_number}</a>
-  {/page}
-
-  {next_page}
-  <li><a href="{pagination_url}" class="page-next">Next Page</a>
-  {/next_page}
-
-  {last_page}
-  <li><a href="{pagination_url}" class="page-last">Last Page</a>
-  {/last_page}
-{/pagination_links}
-{/paginate}
-{/exp:grid_pagination:pagination}
+    {!-- image (GRID) --}
+    {if blog_image}
+        {blog_image offset="{grid:offset}" limit="{grid:limit}"}
+            <figure>
+                <img src="{blog_image:image}" alt="{blog_image:caption:attr_safe}">
+                <figcaption>{blog_image:caption}</figcaption>
+            </figure>
+            {blog_image:grid_encryption}
+            <p>
+                {blog_image:test_grid_datalist:label}
+            </p>
+        {/blog_image}
+        {embed="blog/_grid-pagination"}
+    {/if}
+{/exp:channel:entries}
+{/exp:grid_pagination:field_params}
 ```
