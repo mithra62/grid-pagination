@@ -1,18 +1,18 @@
 <?php
 
-use Mithra62\GridPagination\Services\GridService;
-use Mithra62\GridPagination\Services\EntryService;
-use Mithra62\GridPagination\Services\ChannelService;
+use Mithra62\Grid\Pagination\Services\GridService;
+use Mithra62\Grid\Pagination\Services\EntryService;
+use Mithra62\Grid\Pagination\Services\ChannelService;
 
-const GRID_PAGINATION_VERSION = '1.1.1';
+const GRID_PAGINATION_VERSION = '1.0.0';
 
 return [
     'name'              => 'Grid Pagination',
     'description'       => 'Adds the ability to pagination Grid results in template tags',
     'version'           => GRID_PAGINATION_VERSION,
     'author'            => 'Eric Lamb',
-    'author_url'        => 'fdsa',
-    'namespace'         => 'Mithra62\GridPagination',
+    'author_url'        => 'https://github.com/mithra62/grid-pagination',
+    'namespace'         => 'Mithra62\Grid\Pagination',
     'settings_exist'    => false,
     'services' => [
         'GridService' => function ($addon) {

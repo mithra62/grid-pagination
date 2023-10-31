@@ -1,5 +1,5 @@
 <?php
-namespace Mithra62\GridPagination\Services;
+namespace Mithra62\Grid\Pagination\Services;
 
 use CI_DB_result;
 

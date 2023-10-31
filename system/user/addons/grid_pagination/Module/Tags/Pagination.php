@@ -1,6 +1,6 @@
 <?php
 
-namespace Mithra62\GridPagination\Module\Tags;
+namespace Mithra62\Grid\Pagination\Module\Tags;
 
 use ExpressionEngine\Service\Addon\Controllers\Tag\AbstractRoute;
 
