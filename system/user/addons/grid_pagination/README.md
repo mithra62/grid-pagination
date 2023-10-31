@@ -3,7 +3,7 @@ Adds pagination capabilities to Grid Fields for ExpressionEngine 7.2 and above.
 
 ## Basic Example
 
-<pre>
+```html
 {exp:grid_pagination:field_params
     field_id='4'
     url_title="{segment_3}"
@@ -11,6 +11,7 @@ Adds pagination capabilities to Grid Fields for ExpressionEngine 7.2 and above.
     limit="2"
     url_segment="4"
 }
+
 {exp:channel:entries url_title="{segment_3}" dynamic="false" limit='1' require_entry='yes'}
 
     {!-- content output --}
@@ -32,7 +33,7 @@ Adds pagination capabilities to Grid Fields for ExpressionEngine 7.2 and above.
     {/if}
 {/exp:channel:entries}
 {/exp:grid_pagination:field_params}
-</pre>
+```
 
 ## Considerations
 
