@@ -27,10 +27,10 @@ class AddonSetupTest extends TestCase
 
     /**
      * @depends testAuthorValue
-     * @param $addon
+     * @param Provider $addon
      * @return Provider
      */
-    public function testNameValue($addon): Provider
+    public function testNameValue(Provider $addon): Provider
     {
         $this->assertEquals('Grid Pagination', $addon->getName());
         return $addon;
@@ -38,10 +38,10 @@ class AddonSetupTest extends TestCase
 
     /**
      * @depends testNameValue
-     * @param $addon
+     * @param Provider $addon
      * @return Provider
      */
-    public function testNamespaceValue($addon): Provider
+    public function testNamespaceValue(Provider $addon): Provider
     {
         $this->assertEquals('Mithra62\Grid\Pagination', $addon->getNamespace());
         return $addon;
@@ -49,10 +49,10 @@ class AddonSetupTest extends TestCase
 
     /**
      * @depends testNamespaceValue
-     * @param $addon
+     * @param Provider $addon
      * @return Provider
      */
-    public function testSettingsValue($addon): Provider
+    public function testSettingsValue(Provider $addon): Provider
     {
         $this->assertFalse($addon->get('settings_exist'));
         return $addon;
@@ -60,10 +60,10 @@ class AddonSetupTest extends TestCase
 
     /**
      * @depends testSettingsValue
-     * @param $addon
+     * @param Provider $addon
      * @return Provider
      */
-    public function testVersionConstDefined($addon)
+    public function testVersionConstDefined(Provider $addon): Provider
     {
         $this->assertTrue(defined('GRID_PAGINATION_VERSION'));
         return $addon;
@@ -71,10 +71,10 @@ class AddonSetupTest extends TestCase
 
     /**
      * @depends testVersionConstDefined
-     * @param $addon
+     * @param Provider $addon
      * @return Provider
      */
-    public function testVersionValue($addon)
+    public function testVersionValue(Provider $addon): Provider
     {
         $this->assertTrue($addon->get('version') == GRID_PAGINATION_VERSION);
         return $addon;
